@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "inbox-archaeology"
+version = "0.1.0"
+description = "Find the accounts you've forgotten you have, from an email export you already control. Entirely offline."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Tushar Nagar" }]
+keywords = ["privacy", "email", "mbox", "cli", "security"]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
+
+# Deliberately empty. Only the standard library: `mailbox` and `email` for
+# parsing, everything else is plain Python. See README.md#why-zero-dependencies.
+dependencies = []
+
+[project.scripts]
+inbox-archaeology = "inbox_archaeology.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/tusharnagar2002/inbox-archaeology"
+Issues = "https://github.com/tusharnagar2002/inbox-archaeology/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/inbox_archaeology"]
